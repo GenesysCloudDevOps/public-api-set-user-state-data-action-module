@@ -4,18 +4,19 @@
     "description": "A Terraform/CX as Code remote module for the following Genesys Cloud public API operation: Set User State",
     "origin": "genesys",
     "type": "module",
-    "classification": "",
-    "tags": [],
-    "permissions": [],
+    "classification": "Users",
+    "tags": ["Users"],
+    "permissions": ["directory:user:edit"],
     "products": [
-        "Quality Assurance and Compliance"
+        "Baseline set of permissions necessary to operate Genesys Cloud",
+        "Collaborate Free"
     ],
     "documentation": [],
     "presentation": [
         {
             "title": "Page 1",
             "description": "Please enter the fields below",
-            "fields": []
+            "fields": ["action_name", "action_category", "integration_id"]
         }
     ]
 }
