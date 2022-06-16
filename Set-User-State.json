@@ -1,0 +1,46 @@
+{
+  "name": "Set User State",
+  "integrationType": "purecloud-data-actions",
+  "actionType": "custom",
+  "config": {
+    "request": {
+      "requestUrlTemplate": "/api/v2/users/${input.userId}/state",
+      "requestType": "PUT",
+      "headers": {},
+      "requestTemplate": "{\n  \"state\": \"${input.state}\",\n  \"version\": ${input.version}\n}"
+    },
+    "response": {
+      "translationMap": {},
+      "translationMapDefaults": {},
+      "successTemplate": "${rawResult}"
+    }
+  },
+  "contract": {
+    "input": {
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": ["active", "inactive", "deleted"]
+          },
+          "version": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "output": {
+      "successSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": true
+      }
+    }
+  },
+  "secure": false
+}
